@@ -1,0 +1,17 @@
+{
+	"name": "Better Studres",
+	"version": "1.0.0",
+	"description": "This is an extension to improve studres appearence",
+	"manifest_version": 3,
+	"content_scripts": [
+		{
+			"matches": ["https://studres.cs.st-andrews.ac.uk/*"],
+			"js": ["app.js"]
+		}
+	],
+	"author": "Oleksii Nazarenko",
+	"action": {
+		"default_popup": "index.html",
+		"default_title": "Better Studres"
+	}
+}
