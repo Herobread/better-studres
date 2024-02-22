@@ -39,21 +39,17 @@ a {
 }
 
 .main {
-	max-width: 600px;
+	max-width: 700px;
 	width: 100%;
 	margin: 50px auto;
 	display: grid;
 	gap: 30px;
 }
-/*
-.main-grid {
-	width: 100%;
-	display: grid;
-	gap: 5px;
-}*/
 
 .main-grid {
-	width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .main-grid-header-row {
