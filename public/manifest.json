@@ -3,9 +3,6 @@
 	"description": "This is an extension to improve studres appearence.",
 	"version": "1.0",
 	"manifest_version": 3,
-	"action": {
-		"default_popup": "index.html"
-	},
 	"permissions": ["activeTab", "tabs", "scripting"],
 	"content_scripts": [
 		{
