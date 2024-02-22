@@ -6,6 +6,8 @@ let data = extractHtmlContentToJson()
 
 data = addEmoji(data)
 
-let newHTML = generateHTML(data)
+if (data.fileLinks.length !== 0 && data.sortLinks.length !== 0) {
+	let newHTML = generateHTML(data)
 
-document.documentElement.innerHTML = newHTML
+	document.documentElement.innerHTML = newHTML
+}

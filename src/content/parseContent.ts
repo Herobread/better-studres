@@ -15,6 +15,7 @@ export interface FileLink {
 	lastModified: string
 	name: string
 	size: string
+	url: string
 }
 
 // // Function to parse the HTML and extract relevant data into JSON format
@@ -42,6 +43,9 @@ function getFileLinks() {
 
 		if (columns.length >= 4) {
 			const fileLink: FileLink = {
+				url:
+					columns[1].querySelector<HTMLAnchorElement>('a')?.href ||
+					'',
 				emoji: '',
 				name:
 					columns[1].querySelector<HTMLAnchorElement>('a')
@@ -80,41 +84,3 @@ function getSortLinks() {
 
 	return sortLinks
 }
-
-// 	const jsonResult = {
-// 		title: '',
-// 		topBar: {},
-// 		files: [],
-// 	}
-
-// 	// Extract title
-// 	jsonResult.title = document.title
-
-// 	// Extract top bar data
-// 	const topBarLinks = document.querySelectorAll(
-// 		'h1 + table tbody tr:nth-child(1) th:nth-child(n+2) a'
-// 	)
-// 	topBarLinks.forEach((link) => {
-// 		jsonResult.topBar[link.textContent] = link.href
-// 	})
-
-// 	// Extract file data
-// 	const fileRows = document.querySelectorAll(
-// 		'h1 + table tbody tr:nth-child(n+3)'
-// 	)
-// 	fileRows.forEach((row) => {
-// 		const fileData = {}
-// 		const columns = row.querySelectorAll('td')
-
-// 		if (columns.length >= 4) {
-// 			fileData.name = columns[1].querySelector('a').textContent
-// 			fileData['last modified'] = columns[2].textContent.trim()
-// 			fileData.size = columns[3].textContent.trim()
-// 			fileData.description = columns[4].textContent.trim()
-
-// 			jsonResult.files.push(fileData)
-// 		}
-// 	})
-
-// 	return jsonResult
-// }

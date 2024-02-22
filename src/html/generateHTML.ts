@@ -116,10 +116,12 @@ export default function generateHTML(data: MainJsonContent): string {
 	output += `<hr/>`
 
 	data.fileLinks.forEach((fileLink, i) => {
-		const { emoji, lastModified, name, size } = fileLink
+		const { emoji, lastModified, name, size, url } = fileLink
 
-		output += `<a class="main-grid-item-row" href="/" tabindex="${i + 1}">
-		<div class="name">${emoji + name}</div>
+		output += `<a class="main-grid-item-row" href="${url}" tabindex="${
+			i + 1
+		}">
+		<div class="name">${emoji + ' ' + name}</div>
 		<div class="last-modified">${lastModified}</div>
 		<div class="size">${size}</div>
 	</a>`
@@ -128,8 +130,6 @@ export default function generateHTML(data: MainJsonContent): string {
 	output += `</div>`
 
 	output += `</body></html>`
-
-	console.log(output)
 
 	return output
 }
