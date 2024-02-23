@@ -1,14 +1,13 @@
-import extractHtmlContentToJson from './content/parseContent'
-import { addBetterDate, addEmoji } from './content/prettifyContent'
-import generateHTML from './html/generateHTML'
+import extractHtmlContentToJson, {
+	MainJsonContent,
+} from './content/parseContent'
+import { injectHtml } from './html/injectHTML'
 
-let data = extractHtmlContentToJson()
+let data: MainJsonContent
 
-data = addEmoji(data)
-data = addBetterDate(data)
-
-if (data.fileLinks.length !== 0 && data.sortLinks.length !== 0) {
-	let newHTML = generateHTML(data)
-
-	document.documentElement.innerHTML = newHTML
+export async function main() {
+	data = extractHtmlContentToJson()
+	await injectHtml(data)
 }
+
+main()

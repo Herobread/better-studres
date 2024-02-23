@@ -3,10 +3,13 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
 	mode: 'production',
-	entry: path.resolve(__dirname, '.', 'src', 'index.ts'),
+	entry: {
+		index: path.resolve(__dirname, '.', 'src', 'index.ts'),
+		popup: path.resolve(__dirname, '.', 'src', 'popup.ts'),
+	},
 	output: {
 		path: path.join(__dirname, './dist'),
-		filename: 'bundle.js',
+		filename: '[name].bundle.js',
 	},
 	resolve: {
 		extensions: ['.ts', '.js'],

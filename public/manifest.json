@@ -3,12 +3,15 @@
 	"description": "This is an extension to improve studres appearence.",
 	"version": "1.0",
 	"manifest_version": 3,
-	"permissions": ["activeTab", "tabs", "scripting"],
+	"permissions": ["activeTab", "tabs", "scripting", "storage"],
 	"content_scripts": [
 		{
 			"matches": ["https://studres.cs.st-andrews.ac.uk/*"],
-			"js": ["bundle.js"]
+			"js": ["index.bundle.js", "popup.bundle.js"]
 		}
 	],
-	"author": "Oleksii Nazarenko"
+	"author": "Oleksii Nazarenko",
+	"action": {
+		"default_popup": "popup.html"
+	}
 }

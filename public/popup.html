@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.item {
+				display: flex;
+				align-items: center;
+			}
+
+			.main {
+				min-width: 260px;
+			}
+		</style>
+	</head>
+	<body class="main">
+		<h1>Better studres</h1>
+		<div class="item">
+			<input type="checkbox" id="isEnabled" name="isEnabled" />
+			<label for="isEnabled">Enable extension</label>
+		</div>
+		<hr>
+		<h2>Config</h2>
+		<div class="item">
+			<input type="checkbox" id="isEmoji" name="isEmoji" />
+			<label for="isEmoji">Emoji</label>
+		</div>
+		<div class="item">
+			<input type="checkbox" id="isBetterDates" name="isBetterDates"  />
+			<label for="isBetterDates">Better dates</label>
+		</div>
+		<hr>
+		<i>Refresh the page to see changes</i>
+		<script src="popup.bundle.js"></script>
+	</body>
+</html>
