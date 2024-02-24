@@ -7,7 +7,15 @@ export async function saveConfig(key: string, value: boolean) {
 export async function loadConfig(key: string): Promise<boolean> {
 	return new Promise<boolean>((resolve) => {
 		chrome.storage.sync.get(key, (result) => {
-			resolve(result[key] ?? false)
+			const configValue = result[key]
+			if (configValue === undefined) {
+				// If the key is not set, set it to true
+				chrome.storage.sync.set({ [key]: true }, () => {
+					resolve(true)
+				})
+			} else {
+				resolve(configValue ?? false)
+			}
 		})
 	})
 }
