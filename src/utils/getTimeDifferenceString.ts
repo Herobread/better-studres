@@ -2,6 +2,10 @@ export function getTimeDifferenceString(
 	startDate: Date,
 	endDate: Date
 ): string {
+	if (!isDateValid(startDate) || !isDateValid(endDate)) {
+		return ''
+	}
+
 	let timeDifference = Math.abs(endDate.getTime() - startDate.getTime())
 	let timeDifferenceInSeconds = Math.floor(timeDifference / 1000)
 
@@ -34,4 +38,8 @@ export function getTimeDifferenceString(
 			timeDifferenceInSeconds !== 1 ? 's' : ''
 		} ago`
 	}
+}
+
+export function isDateValid(date: Date) {
+	return !isNaN(date.getTime())
 }
