@@ -2,6 +2,8 @@
 
 This Chrome extension enhances the appearance and functionality of St. Andrews student resources.
 
+[Chrome web store](https://chromewebstore.google.com/detail/better-studres/kamnhbpjhhhjlbandgpngdnplledombg?hl=uk&authuser=0)
+
 ## How to Build
 
 ### Prerequisites
