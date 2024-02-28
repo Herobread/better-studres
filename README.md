@@ -11,12 +11,12 @@ This Chrome extension enhances the appearance and functionality of St. Andrews s
 ### Steps
 1. Clone this repository to your local machine.
    ```bash
-   git clone https://github.com/yourusername/st-andrews-student-resources.git
+   git clone https://github.com/Herobread/better-studres.git
    ```
 
 2. Navigate to the project directory.
    ```bash
-   cd st-andrews-student-resources
+   cd better-studres
    ```
 
 3. Install dependencies.
