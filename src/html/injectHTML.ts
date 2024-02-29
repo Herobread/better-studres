@@ -1,13 +1,13 @@
 import { MainJsonContent } from '../content/parseContent'
 import { addBetterDate, addEmoji } from '../content/prettifyContent'
-import { loadConfig } from '../storage/config'
+import { loadConfigBoolean } from '../storage/config'
 import generateHTML from './generateHTML'
 
 export async function injectHtml(data: MainJsonContent) {
 	// Load configuration
-	const isEnabled = await loadConfig('isEnabled')
-	const isEmoji = await loadConfig('isEmoji')
-	const isBetterDates = await loadConfig('isBetterDates')
+	const isEnabled = await loadConfigBoolean('isEnabled')
+	const isEmoji = await loadConfigBoolean('isEmoji')
+	const isBetterDates = await loadConfigBoolean('isBetterDates')
 
 	// Apply transformations based on configuration
 	if (isEnabled) {
@@ -19,7 +19,7 @@ export async function injectHtml(data: MainJsonContent) {
 		}
 
 		if (data.fileLinks.length !== 0 && data.sortLinks.length !== 0) {
-			const newHTML = generateHTML(data)
+			const newHTML = await generateHTML(data)
 			document.documentElement.innerHTML = newHTML
 		}
 	}

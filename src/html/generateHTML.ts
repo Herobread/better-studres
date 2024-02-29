@@ -1,3 +1,4 @@
+import { getJumpToLinks } from '../content/getJumpToLinks'
 import { MainJsonContent } from '../content/parseContent'
 import overrideDoctype from './overrideDoctype'
 
@@ -83,9 +84,16 @@ a {
 	font-weight: bold;
 }
 
+.jumpTo-container {
+	display: flex;
+	gap:10px;
+}
+
 `
 
-export default function generateHTML(data: MainJsonContent): string {
+export default async function generateHTML(
+	data: MainJsonContent
+): Promise<string> {
 	let output = `<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -98,7 +106,22 @@ export default function generateHTML(data: MainJsonContent): string {
 
 	output += `<div class="main-grid">`
 
+	const links = await getJumpToLinks()
+
+	output += `<div class="hero">`
 	output += `<h1 class="title">${data.title}</h1>`
+
+	let linksArray = links.map((link) => {
+		return `<a href="${link.url}">${link.name}</a>`
+	})
+
+	let linksHtml = linksArray.join('<div>|</div>')
+
+	output += `<div class="jumpTo-container">
+		<p>Jump to:</p>
+		${linksHtml}
+	</div>`
+	output += `</div>`
 
 	output += `<div class="main-grid-header-row">`
 

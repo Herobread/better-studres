@@ -5,7 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<style>
-			.item {
+			* {
+				box-sizing: border-box;
+			}
+			
+			.item-checkbox {
 				display: flex;
 				align-items: center;
 			}
@@ -17,19 +21,23 @@
 	</head>
 	<body class="main">
 		<h1>Better studres</h1>
-		<div class="item">
+		<div class="item-checkbox">
 			<input type="checkbox" id="isEnabled" name="isEnabled" />
 			<label for="isEnabled">Enable extension</label>
 		</div>
 		<hr>
 		<h2>Config</h2>
-		<div class="item">
+		<div class="item-checkbox">
 			<input type="checkbox" id="isEmoji" name="isEmoji" />
 			<label for="isEmoji">Emoji</label>
 		</div>
-		<div class="item">
+		<div class="item-checkbox">
 			<input type="checkbox" id="isBetterDates" name="isBetterDates"  />
 			<label for="isBetterDates">Better dates</label>
+		</div>
+		<div class="item-input">
+			<label for="jumpTo">Quick access: (separate by comma)</label>
+			<input type="text" id="jumpTo" name="jumpTo" placeholder="root, CS1003, CS1006" style="width: 100%;"/>
 		</div>
 		<hr>
 		<i>Refresh the page to see changes</i>
