@@ -1,7 +1,7 @@
 {
 	"name": "Better Studres",
 	"description": "This is an extension to improve studres appearence.",
-	"version": "1.0",
+	"version": "1.2",
 	"manifest_version": 3,
 	"permissions": ["storage"],
 	"icons": {

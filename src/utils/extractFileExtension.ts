@@ -3,6 +3,16 @@ export default function extractFileExtension(name: string): string {
 		return 'parentDir'
 	}
 
+	if (name === 'ThinkingInJava/') {
+		return 'thinking'
+	}
+
+	if (name === 'javascript-101/') {
+		return 'html'
+	}
+
+	name = name.toLowerCase()
+
 	if (name.endsWith('/')) {
 		return 'folder'
 	}
@@ -10,7 +20,7 @@ export default function extractFileExtension(name: string): string {
 	const parts = name.split('.')
 
 	if (parts.length === 1) {
-		return 'file'
+		return name
 	}
 
 	const extension = parts[parts.length - 1]

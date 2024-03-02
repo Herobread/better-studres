@@ -14,15 +14,13 @@ const rootLink: JumpToLink = {
 export async function getJumpToLinks(): Promise<JumpToLink[]> {
 	let links: JumpToLink[] = []
 
-	let userLinksString = await loadConfigString('jumpTo')
-	let userLinks = '' // cleanup: remove spaces and slashes
+	const defaultJumpToInputValue = 'root, CS1003, CS1006'
 
-	if (!userLinksString) {
-		return [rootLink]
-	}
+	let userLinksString =
+		(await loadConfigString('jumpTo')) || defaultJumpToInputValue
 
 	// remove 1st '/' and spaces
-	userLinks = userLinksString.replace(/^\/?|\/$/g, '').replace(/\s/g, '')
+	let userLinks = userLinksString.replace(/^\/?|\/$/g, '').replace(/\s/g, '')
 
 	let userLinksArray = userLinks.split(',')
 

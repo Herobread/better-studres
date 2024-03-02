@@ -42,8 +42,10 @@ async function initializePopup() {
 	isBetterDatesCheckbox.addEventListener('change', handleCheckboxChange)
 
 	const jumpToInput = document.getElementById('jumpTo') as HTMLInputElement
-	jumpToInput.value =
-		(await loadConfigString('jumpTo')) || 'root, CS1003, CS1006'
+	const jumpToInputValue = await loadConfigString('jumpTo')
+	const defaultJumpToInputValue = 'root, CS1003, CS1006'
+	jumpToInput.value = jumpToInputValue || defaultJumpToInputValue
+
 	jumpToInput.addEventListener('change', handleInputChange)
 }
 
