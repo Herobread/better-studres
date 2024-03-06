@@ -1,14 +1,33 @@
 {
 	"compilerOptions": {
-		"strict": true,
-		"module": "commonjs",
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"module": "ESNext",
 		"target": "es6",
 		"esModuleInterop": true,
+		"strict": true,
 		"sourceMap": true,
 		"rootDir": ".",
 		"outDir": "dist/",
 		"allowJs": true,
 		"noEmitOnError": true,
-		"typeRoots": ["node_modules/@types"]
+		"typeRoots": ["node_modules/@types"],
+		"moduleResolution": "node",
+		"baseUrl": ".",
+		"paths": {
+			"preact": ["node_modules/preact/dist/preact.min.js"],
+			"preact/jsx-runtime": ["node_modules/preact/jsx-runtime"]
+		}
+	},
+	"babel": {
+		"plugins": [
+			[
+				"@babel/plugin-transform-react-jsx",
+				{
+					"pragma": "h",
+					"pragmaFrag": "Fragment"
+				}
+			]
+		]
 	}
 }
